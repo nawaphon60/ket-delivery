@@ -1,15 +1,15 @@
 <h5>ขนส่งเชื่อมอัตโนมัติ</h5>
 <p>ระบบจะจองขนส่ง พร้อมออกเลขพัสดุให้ทันทีเมื่อทำการสั่งซื้อสำเร็จ รองรับการส่งจากพาร์ทเนอร์หลายค่าย</p>
 
-<div>
-    <div>
-        การแสดงผล
-        <div class="row">
+<div class="row">
+    <div class="col-6">
+        <p>การแสดงผล</p>
+        <div class="row ml-1">
             <div>
-                <nz-avatar [nzShape]="'square'" [nzSize]="64"></nz-avatar>
+                <nz-avatar [nzShape]="'square'" [nzSize]="120"></nz-avatar>
             </div>
             <div>
-                ชื่อค่ายขนส่ง
+                <p>ชื่อค่ายขนส่ง</p>
                 <nz-list nzBordered nzSize="small">
                     <nz-list-header>Name Delivery</nz-list-header>
                 </nz-list>
@@ -28,16 +28,61 @@
         </div>
 
         <div>
-            <div>
+            <div class="row">
                 <h6>บริการเก็บเงินปลายทาง</h6>
-                <div></div>
+                <nz-tag [nzColor]="'#E82323'">PREMIUM</nz-tag>
                 <div>
-                    
+                    <!-- <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch> -->
                 </div>
+            </div>
+            <p>COD ผู้ซื้อชำระค่าสินค้ากับพนักงานส่งของที่ปลายทางก่อนจะได้รับสินค้า</p>
+            <p>ค่าธรรมเนียม</p>
+            <div class="row">
+                <nz-list nzBordered nzSize="small">
+                    <nz-list-header></nz-list-header>
+                </nz-list>
+                <nz-select ngModel="บาท">
+                    <nz-option nzValue="บาท" nzLabel="บาท"></nz-option>
+                    <nz-option nzValue="option2" nzLabel="option2"></nz-option>
+                </nz-select>
             </div>
         </div>
     </div>
+
     <div>
+        <div>
+            <h5>กำหนดราคาขนส่ง</h5>
+            <p>เลือกวิธีกำหนดราคา</p>
+            <nz-select ngModel="ใช้ค่าส่งตามจริง">
+                <nz-option nzValue="ใช้ค่าส่งตามจริง" nzLabel="ใช้ค่าส่งตามจริง"></nz-option>
+                <nz-option nzValue="option2" nzLabel="option2"></nz-option>
+                <nz-option nzValue="option3" nzLabel="option3"></nz-option>
+            </nz-select>
+        </div>
+
+        <div>
+            <h5>ราคาตามช่วงน้ำหนัก</h5>
+            <div>
+                <div>
+                    <p>ช่วงน้ำหนัก<span>กรัม</span></p>
+                    <nz-input-group nzCompact>
+                        <input type="text" nz-input style="width: 20%;" />
+                        <input class="text-center" type="text" nz-input placeholder="-" [disabled]="true"
+                            style="width:20%;" />
+                        <input type="text" nz-input style="width:20%;" />
+                    </nz-input-group>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+
+        <div nzJustify="space-around" nzAlign="middle" class="weight col-12">
+            <button nz-col nz-button nzType="default"><i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+                เพิ่มช่วงน้ำหนัก
+            </button>
+        </div>
 
     </div>
 </div>
