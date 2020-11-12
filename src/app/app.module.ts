@@ -40,7 +40,7 @@ registerLocaleData(en);
     NzSwitchModule,
     NzDropDownModule,
     NzIconModule,
-    NzSelectModule,
+    NzSelectModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
