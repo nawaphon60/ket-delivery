@@ -1,27 +1,7 @@
 <nz-layout>
   <nz-sider nzWidth="200px">
     <div class="logo"></div>
-    <ul nz-menu nzMode="inline">
-      <li nz-submenu nzTitle="Menu1">
-        <ul>
-          <li nz-menu-item>submenu1</li>
-          <li nz-menu-item>submenu2</li>
-          <li nz-menu-item>submenu3</li>
-        </ul>
-      </li>
-      <li nz-submenu nzTitle="Setting">
-        <ul>
-          <li nz-menu-item>E-commerce</li>
-          <li nz-menu-item nzSelected>Delivery</li>
-          <li nz-menu-item>Payment</li>
-          <li nz-menu-item>Notifications</li>
-          <li nz-menu-item>Email Template</li>
-          <li nz-menu-item>SEO</li>
-          <li nz-menu-item>PDPA</li>
-          <li nz-menu-item>Conversion Tools</li>
-        </ul>
-      </li>
-    </ul>
+    <app-slide-bar></app-slide-bar>
   </nz-sider>
   <nz-layout>
     <nz-header></nz-header>
@@ -35,22 +15,22 @@
         <h1>Setting Delivery</h1>
 
         <div class="row mt-4">
-           <!-- sidemenu -->
-          <div class="sidemenu1 col-2">
-            <ul class="sidemenu">
-              <li>ตั้งค่าขนส่ง</li>
-              <li>Direct Delivery</li>
-              <li>กำหนดที่อยู่</li>
+          <!-- sidemenu -->
+          <div class="sidemenu1 col-3">
+            <ul nz-menu nzMode="inline">
+              <li nz-menu-item nzSelected>ตั้งค่าขนส่ง</li>
+              <li nz-menu-item>Direct Delivery</li>
+              <li nz-menu-item>กำหนดที่อยู่</li>
             </ul>
           </div>
           <!-- content -->
-          <div class="content1 col-9 ml-2">
+          <div class="content1 col-8 ml-2">
             <div><h1>ตั้งค่าขนส่ง</h1></div>
             
             <div class="settrans row col-8">
               <div class="col-10 p-0"><p>จัดส่งฟรี<br>เมื่อเปิดใช้งานจัดส่งฟรี คำอธิบาย...</p></div>
               <div class="col-2 mt-3 text-right p-0">
-                <nz-switch [ngModel]="true" nzCheckedChildren="เปิด" nzUnCheckedChildren="ปิด"></nz-switch>
+                <nz-switch [(ngModel)]="sw_open" nzCheckedChildren="เปิด" nzUnCheckedChildren="ปิด"></nz-switch>
               </div>
             </div>
             
@@ -60,9 +40,9 @@
                   PLUS-CIRCLE เพิ่มขนส่ง
                   <i nz-icon nzType="down"></i>
                 </a>
-                <nz-dropdown-menu #menu="nzDropdownMenu" class="p-0">
+                <nz-dropdown-menu #menu class="p-0">
                   <ul nz-menu>
-                    <li nz-menu-item>ขนส่งทั่วไป</li>
+                    <li nz-menu-item (click)="addDeelivery('normal')">ขนส่งทั่วไป</li>
                     <li nz-menu-item>ขนส่งอัตโนมัติ<span style="color: #919191;">(ไม่รองรับ COD)</span></li>
                     <li nz-menu-item>ขนส่ง Direct</li>
                     <li nz-menu-item>Shippop</li>

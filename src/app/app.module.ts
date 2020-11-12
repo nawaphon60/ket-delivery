@@ -19,6 +19,9 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { SlideBarModule } from './components/slide-bar/slide-bar.module';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { AddEditDeliveryModule } from './components/add-edit-delivery/add-edit-delivery.module';
 
 registerLocaleData(en);
 
@@ -40,7 +43,10 @@ registerLocaleData(en);
     NzSwitchModule,
     NzDropDownModule,
     NzIconModule,
-    NzSelectModule
+    NzSelectModule,
+    SlideBarModule,
+    NzDrawerModule,
+    AddEditDeliveryModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

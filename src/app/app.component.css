@@ -36,35 +36,32 @@ nz-footer {
   height: 100%;
 }
 
-.ant-menu-submenu-open {
-  background-color: #FA573B;
-}
-
-.ng-star-inserted {
-  background-color: #464646;
-  color: #ffffff;
-}
-
-.ant-menu-item-selected {
+/* .ant-menu-item-selected {
   color: #FA573B;
-}
+} */
 
 .ant-layout-sider {
   background-color: #3a3a3a;
 }
 
-.ant-menu-light {
+/* nz-sidert .ant-menu-light {
   background-color: #3a3a3a;
   color: #ffffff;
-}
+} */
 
-li.ant-menu-item:hover {
+/* li.ant-menu-item:hover {
   color: #FA573B;
+} */
+
+/* .ant-menu-item-selected {
+  background-color: #FA573B;
+} */
+
+ul.sidemenu {
+  padding-left: 0px;
 }
 
-.ant-menu-item-selected {
-  background-color: #FA573B;
-}
+
 
 /* -------------------------------- Content --------------------------------------- */
 
@@ -78,6 +75,7 @@ li.ant-menu-item:hover {
 .sidemenu1 {
   border-right: 2px solid #e0e0e0;
   height: 700px;
+  padding-right: 0px;
 }
 
 ul.sidemenu li {
@@ -175,7 +173,7 @@ ul.sidemenu li {
 }
 
 .ant-switch-checked {
-  background-color: #4CC600 !important;
+  background-color: #4CC600;
 }
 
 nz-select {

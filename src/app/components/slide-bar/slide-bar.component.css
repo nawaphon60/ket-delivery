@@ -1,0 +1,60 @@
+.ant-menu-light {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.ant-menu-submenu {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ant-menu-submenu-open {
+    background-color: #FA573B;
+    color: #ffffff;
+}
+
+.ant-menu-submenu-active {
+    color: #ffffff;
+}
+
+.ng-star-inserted {
+  background-color: #464646;
+  color: #ffffff;
+}
+
+.ant-menu-item {
+    font-weight: medium !important;
+}
+
+.ant-menu-item:hover {
+    color: #FA573B;
+}
+
+.ant-menu-item-selected {
+    color: #FA573B;
+    background-color: #707070 !important;
+}
+
+/* .ant-menu-item::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: 3px solid #FA573B;
+} */
+
+.ant-menu-item::after {
+    display: none;
+}
+
+:host .ant-menu-item{
+    font-weight: 400;
+}
+:host .ant-menu-submenu-selected{
+    padding-left: 6px;
+}
+
+:host div.ant-menu-submenu{
+    background-color: #464646;
+}

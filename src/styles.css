@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 .ant-switch-checked {
-    background-color: #4CC600 !important;
+    background-color: #4CC600;
   }
-  
+
+
+app-slide-bar li.ant-menu-submenu > .ant-menu {
+    background-color: #464646;
+    border-radius: 2px;
+}
