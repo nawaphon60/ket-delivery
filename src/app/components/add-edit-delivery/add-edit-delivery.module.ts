@@ -10,8 +10,10 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
-
-
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { FormsModule } from '@angular/forms';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 @NgModule({
   declarations: [AddEditDeliveryComponent],
@@ -25,7 +27,11 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     NzInputModule,
     NzTagModule,
     NzButtonModule,
-    NzGridModule
+    NzGridModule,
+    NzAlertModule,
+    FormsModule,
+    NzInputNumberModule,
+    NzDividerModule
   ],
   exports: [
     AddEditDeliveryComponent

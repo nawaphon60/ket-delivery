@@ -8,3 +8,15 @@ app-slide-bar li.ant-menu-submenu > .ant-menu {
     background-color: #464646;
     border-radius: 2px;
 }
+
+.anticon {
+  vertical-align: 2px;
+}
+
+.select-custom .ant-select-selector{
+  border-radius:  0 5px 5px 0 !important;
+}
+
+.select-bordercustom .ant-select-selector{
+  border-radius: 5px !important;
+}

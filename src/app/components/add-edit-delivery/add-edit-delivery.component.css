@@ -1,3 +1,7 @@
+:root {
+    --poppins: 'Poppins', sans-serif;
+}
+
 nz-select {
     margin: 0 8px 10px 0;
     width: 120px;
@@ -5,7 +9,7 @@ nz-select {
 
 .weight {
     border: 1px dashed #ccc;
-    height: 200px;
+    padding: 10px 0px;
 }
 
 h5 {
@@ -14,4 +18,21 @@ h5 {
 
 p {
     font-size: 14px;
+}
+
+.alert-weight {
+    width: 474px;
+    height: 62;
+}
+
+.premium {
+    color: whitesmoke;
+    background: linear-gradient(to right, rgba(232,35,35,1), rgba(249,142,76,1));
+    font-size: 10px;
+    font-weight: 400;
+    font-family: 'Kanit', sans-serif;
+    height: 18px;
+    margin-top: 3px;
+    border: inherit;
+    border-radius: 5px;
 }
