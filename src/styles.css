@@ -20,3 +20,7 @@ app-slide-bar li.ant-menu-submenu > .ant-menu {
 .select-bordercustom .ant-select-selector{
   border-radius: 5px !important;
 }
+
+.ant-input-number-input {
+  font-weight: bold;
+}

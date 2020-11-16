@@ -1,0 +1,570 @@
+<nz-layout>
+    <nz-sider nzWidth="200px">
+      <div class="logo"></div>
+      <app-slide-bar></app-slide-bar>
+    </nz-sider>
+    <nz-layout>
+      <nz-header></nz-header>
+      <nz-content>
+  
+        <nz-breadcrumb>
+          
+        </nz-breadcrumb>
+  
+        <div class="inner-content">
+          <h1>Setting Delivery</h1>
+  
+          <div class="row mt-4">
+            <!-- sidemenu -->
+            <div class="sidemenu1 col-3">
+              <ul nz-menu nzMode="inline">
+                <li nz-menu-item nzSelected>ตั้งค่าขนส่ง</li>
+                <li nz-menu-item>Direct Delivery</li>
+                <li nz-menu-item>กำหนดที่อยู่</li>
+              </ul>
+            </div>
+            <!-- content -->
+            <div class="content1 col-8 ml-2">
+              <div><h1>ตั้งค่าขนส่ง</h1></div>
+              
+              <div class="settrans row col-8">
+                <div class="col-10 p-0"><p>จัดส่งฟรี<br>เมื่อเปิดใช้งานจัดส่งฟรี คำอธิบาย...</p></div>
+                <div class="col-2 mt-3 text-right p-0">
+                  <nz-switch [(ngModel)]="sw_open" nzCheckedChildren="เปิด" nzUnCheckedChildren="ปิด"></nz-switch>
+                </div>
+              </div>
+              
+              <div class="col-12 text-right p-0">
+                <button nz-button nzType="primary"  class="ml-3">
+                  <a nz-dropdown nzTrigger="click" nzPlacement="bottomRight" [nzDropdownMenu]="menu">
+                    PLUS-CIRCLE เพิ่มขนส่ง
+                    <i nz-icon nzType="down"></i>
+                  </a>
+                  <nz-dropdown-menu #menu class="p-0">
+                    <ul nz-menu>
+                      <li nz-menu-item (click)="addDeelivery('normal')">ขนส่งทั่วไป</li>
+                      <li nz-menu-item>ขนส่งอัตโนมัติ<span style="color: #919191;">(ไม่รองรับ COD)</span></li>
+                      <li nz-menu-item>ขนส่ง Direct</li>
+                      <li nz-menu-item>Shippop</li>
+                    </ul>
+                  </nz-dropdown-menu>
+                </button>
+              </div>
+                
+              <div class="transtype row col-12 mt-3 pt-2 ml-1">
+                <p class="mt-1 mr-3">ประเภทขนส่ง</p>
+                <nz-select ngModel="ทั้งหมด">
+                  <nz-option nzValue="ทั้งหมด" nzLabel="ทั้งหมด"></nz-option>
+                  <nz-option nzValue="ขนส่งทั่วไป" nzLabel="ขนส่งทั่วไป"></nz-option>
+                  <nz-option nzValue="ขนส่งอัตโนมัติ" nzLabel="ขนส่งอัตโนมัติ"></nz-option>
+                  <nz-option nzValue="ขนส่ง Direct" nzLabel="ขนส่ง Direct"></nz-option>
+                  <nz-option nzValue="Shippop" nzLabel="Shippop"></nz-option>
+                </nz-select>
+              </div>
+              <!-- row1 -->
+              <div class="row mt-3 ml-1 pb-3">
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    Direct
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="false" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทเชื่อมขนส่ง Direct <i nz-icon nzType="question-circle" nzTheme="outline" class="ml-1"></i></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>Flash Express</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3"></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle off mr-2 mt-1"></div>
+                      <p class="mr-5">ไม่ใช้งาน</p>
+                      <h6 class="ml-5"></h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาเป็นไปตามขนส่งกำหนด</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button  class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    Direct - COD
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทเชื่อมขนส่ง Direct <i nz-icon nzType="question-circle" nzTheme="outline" class="ml-1"></i></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>Flash Express</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3">COD Fee</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p class="mr-5">ใช้งาน</p>
+                      <h6 class="ml-5">3%</h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาเป็นไปตามขนส่งกำหนด</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+  
+                  <div class="row justify-content-between m-3" >
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+              </div>
+              <!-- row2 -->
+              <div class="row mt-3 ml-1 pb-3">
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    อัตโนมัติ
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทเชื่อมขนส่งอัตโนมัติ</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>Flash Express</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3"></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle off mr-2 mt-1"></div>
+                      <p class="mr-5">ไม่ใช้งาน</p>
+                      <h6 class="ml-5"></h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-left ml-4 p-1">
+                    <tr class="row " style="font-size: 10px;">
+                      <th class="col-6 p-0">ช่วงน้ำหนัก<span>(กรัม)</span></th>
+                      <th class="col-6 p-0">Top Up<span>(บาท)</span></th>
+                    </tr>
+                    <tr class="row " style="font-size: 10px;">
+                      <td class="col-3 p-0">0</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">2,000</td>
+                      <td class="col-4 p-0">+20.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">2,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">5,000</td>
+                      <td class="col-4 p-0">+50.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">5,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">10,000</td>
+                      <td class="col-4 p-0">+100.00</td>
+                    </tr>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    อัตโนมัติ
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทเชื่อมขนส่งอัตโนมัติ</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>ไม่ระบุค่าย</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3"></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle off mr-2 mt-1"></div>
+                      <p class="mr-5">ไม่ใช้งาน</p>
+                      <h6 class="ml-5"></h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-left ml-4 p-1">
+                    <tr class="row " style="font-size: 10px;">
+                      <th class="col-6 p-0">ช่วงน้ำหนัก<span>(กรัม)</span></th>
+                      <th class="col-6 p-0">Top Up<span>(บาท)</span></th>
+                    </tr>
+                    <tr class="row " style="font-size: 10px;">
+                      <td class="col-3 p-0">0</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">2,000</td>
+                      <td class="col-4 p-0">20.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">2,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">5,000</td>
+                      <td class="col-4 p-0">50.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">5,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">10,000</td>
+                      <td class="col-4 p-0">100.00</td>
+                    </tr>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    อัตโนมัติ - COD
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทเชื่อมขนส่งอัตโนมัติ</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>Flash Express</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3">COD Fee</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p class="mr-5">ใช้งาน</p>
+                      <h6 class="ml-5">3%</h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาตามจริง</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+              </div>
+              <!-- row3 -->
+              <div class="row mt-3 ml-1 pb-3"> 
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    ทั่วไป
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="false" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทขส่งทั่วไป</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p>ใช้งาน</p>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p></p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle off mr-2 mt-1"></div>
+                      <p class="mr-5">ไม่ใช้งาน</p>
+                      <h6 class="ml-5"></h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาเป็นไปตามขนส่งกำหนด</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    ทั่วไป - COD
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+  
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทขส่งทั่วไป</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p>ใช้งาน</p>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3">COD Fee</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p class="mr-5">ใช้งาน</p>
+                      <h6 class="ml-5">3%</h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาเป็นไปตามขนส่งกำหนด</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+  
+                  <div class="row justify-content-between m-3" >
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+              </div>
+              <!-- row4 -->
+              <div class="row mt-3 ml-1 pb-3">
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    Shippop
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+  
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทขส่ง Shippop</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <h6><i nz-icon nzType="link" nzTheme="outline" class="mr-1"></i>Flash Express</h6>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3">COD Fee</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p class="mr-5">ใช้งาน</p>
+                      <h6 class="ml-5">3%</h6>
+                    </div>
+  
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-center">
+                    <img src="/assets/images/Group 10019.png" alt="" style="width: 53.74px;" class="mb-2">
+                    <p style="font-size: 10px;">ราคาตามจริง</p>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+           
+                  <div class="row justify-content-between m-3">
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+                <div class="card mr-3" style="width: 196.75px; height: 571px;">
+                  <img src="/assets/images/Mask Group 15.png" alt="">
+                  <div class="direct col-12 ml-1 mt-1 text-left">
+                    Shippop - COD
+                  </div>
+                  <div class="col-12 mt-3 text-right pr-2" style="position: absolute;">
+                    <nz-switch [ngModel]="true" nzCheckedChildren="ON" nzUnCheckedChildren="OFF"></nz-switch>
+                  </div>
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Name Delivery</h5>
+  
+                    <div class="row pl-2 mb-1">
+                      <p class="card-text">ประเภทขส่งทั่วไป</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p>ใช้งาน</p>
+                    </div>
+  
+                    <div class="row justify-content-between pl-2">
+                      <p style="font-size: 10px;">บริการเก็บเงินปลายทาง</p>
+                      <p class="mr-3">COD Fee</p>
+                    </div>
+  
+                    <div class="row pl-2">
+                      <div class="rounded-circle on mr-2 mt-1"></div>
+                      <p class="mr-5">ใช้งาน</p>
+                      <h6 class="ml-5">3%</h6>
+                    </div>
+                    <div class="mb-3" style="width: 100%; height: 1px; background-color:#e0e0e0; "></div>
+                  </div>
+  
+                  <div class="text-left ml-4 p-1">
+                    <tr class="row " style="font-size: 10px;">
+                      <th class="col-6 p-0">ช่วงน้ำหนัก<span>(กรัม)</span></th>
+                      <th class="col-6 p-0">Top Up<span>(บาท)</span></th>
+                    </tr>
+                    <tr class="row " style="font-size: 10px;">
+                      <td class="col-3 p-0">0</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">2,000</td>
+                      <td class="col-4 p-0">+20.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">2,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">5,000</td>
+                      <td class="col-4 p-0">+50.00</td>
+                    </tr>
+                    <tr class="row" style="font-size: 10px;">
+                      <td class="col-3 p-0">5,001</td>
+                      <td class="col-1 p-0">-</td>
+                      <td class="col-3 p-0">10,000</td>
+                      <td class="col-4 p-0">+100.00</td>
+                    </tr>
+                  </div>
+  
+                  <div style="border-top: 1px dashed #e0e0e0;"></div>
+  
+                  <div class="row justify-content-between m-3" >
+                    <button nz-button class="ant-btn-default">แก้ไข</button>
+                    <button nz-button class="ant-btn-default">ลบ</button>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </nz-content>
+    </nz-layout>
+  </nz-layout>

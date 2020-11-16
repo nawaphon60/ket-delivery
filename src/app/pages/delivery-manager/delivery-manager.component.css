@@ -1,0 +1,184 @@
+:root {
+    --prompt: 'Prompt', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+  }
+  
+  .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+  
+  nz-header {
+    background: #fff;
+    padding: 0;
+  }
+  
+  nz-content {
+    margin: 0 16px;
+  }
+  
+  nz-breadcrumb {
+    margin: 16px 0;
+  }
+  
+  .inner-content {
+    padding: 24px;
+    background: #fff;
+    min-height: 360px;
+  }
+  
+  nz-footer {
+    text-align: center;
+  }
+  
+  .ant-layout.ant-layout-has-sider{
+    height: 100%;
+  }
+  
+  /* .ant-menu-item-selected {
+    color: #FA573B;
+  } */
+  
+  .ant-layout-sider {
+    background-color: #3a3a3a;
+  }
+  
+  /* nz-sidert .ant-menu-light {
+    background-color: #3a3a3a;
+    color: #ffffff;
+  } */
+  
+  /* li.ant-menu-item:hover {
+    color: #FA573B;
+  } */
+  
+  /* .ant-menu-item-selected {
+    background-color: #FA573B;
+  } */
+  
+  ul.sidemenu {
+    padding-left: 0px;
+  }
+  
+  
+  
+  /* -------------------------------- Content --------------------------------------- */
+  
+  .inner-content h1 {
+    font-family: var(--prompt);
+    color: #2C2E3E;
+    font-size: 24px;
+    font-weight: 400;
+  }
+  
+  .sidemenu1 {
+    border-right: 2px solid #e0e0e0;
+    height: 700px;
+    padding-right: 0px;
+  }
+  
+  ul.sidemenu li {
+    color: #1890FF;
+    list-style: none;
+  }
+  
+  .settrans:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+  }
+  
+  .settrans::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #e0e0e0;
+    margin-top: 10px;
+  }
+  
+  .transtype {
+    background-color: #ECF0F6;
+    width: auto;
+    height: 50px;
+  }
+  
+  .rounded-circle {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .rounded-circle.on {
+    background-color: #52C41A;
+  }
+  
+  .rounded-circle.off {
+    background-color: #a7a7a7;
+  }
+  
+  .card-body h5 {
+    font-family: var(--poppins);
+    font-size: 16;
+    font-weight: 800;
+    color: #000000;
+  }
+  
+  .card-body h6 {
+    font-family: var(--poppins);
+    font-size: 12;
+    font-weight: 500;
+    color: #000000;
+  }
+  
+  .card-body {
+    height: 140px;
+  }
+  
+  .card-body p {
+    font-size: 10px;
+  }
+  
+  .direct {
+    position: absolute; 
+    width: auto; 
+    height: auto;
+    font-size: 10px;
+    font-weight: 500; 
+    color: white; 
+    background-color: rgb(107, 107, 107); 
+    border-radius: 5px;
+  }
+  
+  .card {
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  }
+  
+  .ant-btn-primary{
+    background: #FA573B;
+    border-color :#FA573B;
+    border-radius: 5px;
+    
+  }
+  
+  .ant-btn-default {
+    font-size: 12px;
+    border-radius: 5px;
+    width: 74px;
+    height: 24px;
+    padding: 1px;
+  }
+  
+  .ant-switch-checked {
+    background-color: #4CC600;
+  }
+  
+  nz-select {
+    margin: 0 8px 10px 0;
+    width: 120px;
+  }
+  
+  
