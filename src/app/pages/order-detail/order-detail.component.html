@@ -1,1 +1,120 @@
-<p>order-detail works!</p>
+<div class="row col-12">
+    <div class="col-4 mt-3">
+        <img src="https://via.placeholder.com/80" alt="">
+    </div>
+    <div class="col-8">
+        <h4>เลขออเดอร์ #2010000012</h4>
+        <a nz-button nzType="link" nzDanger><i nz-icon nzType="printer" nzTheme="outline"
+                class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
+    </div>
+</div>
+
+<div class="row col-12 m-0" style="
+        border-bottom: 1px solid #000000;
+    ">
+    <span>สถานะ</span>
+    <nz-select ngModel="ได้รับเงิน">
+        <nz-option nzValue="ได้รับเงิน" nzLabel="ได้รับเงิน"></nz-option>
+        <nz-option nzValue="ยกเลิก" nzLabel="ยกเลิก"></nz-option>
+    </nz-select>
+    <button nz-button nzType="primary" nzDanger>บันทึก</button>
+</div>
+
+<div>
+    <div class="row col-12 justify-content-between">
+        <h5>การจัดส่ง</h5>
+        <a nz-button nzType="link" nzDanger><i nz-icon nzType="printer" nzTheme="outline"
+                class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
+    </div>
+
+    <div class="row" style="
+            background-color: #d4edda;
+            border-radius: 5px;
+            margin: 0px 10px;
+            padding: 10px;
+        ">
+        <div class="col-12 col-md-5 mb-3">
+            <p class="mb-1">ผู้บริการขนส่ง</p>
+            <div _ngcontent-alq-c2="" class="ng-star-inserted"> ไปรษณีย์ EMS ( 10.00 ) </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-3">
+            <p class="mb-1">Tracking Code</p>
+            <input nz-input placeholder="กรุณาพิมพ์เลขพัสดุ" nzSize="large" />
+        </div>
+
+        <div class="col-12 col-md-3">
+            <p>Shipping Code</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-12">
+    <h5>รายการสั่งซื้อ</h5>
+
+    <table class="table table-dark col-12">
+        <thead>
+            <tr>
+                <th scope="col">รูปภาพ</th>
+                <th scope="col">ชื่อสินค้า</th>
+                <th scope="col">ราคา/หน่วย</th>
+                <th scope="col">จำนวน</th>
+                <th scope="col">ราคา(บาท)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-12">
+    <div>
+        <h5>ข้อมูลคำสั่งซื้อ</h5>
+        <div class="row">
+            <div class="col-4">วันที่สร้าง</div>
+            <div class="col-8">2020-11-04 17:29:24</div>
+        </div>
+        <div class="row">
+            <div class="col-4">ช่องทางขาย</div>
+            <div class="col-8">website</div>
+        </div>
+        <div class="row">
+            <div class="col-4">สร้างโดย</div>
+            <div class="col-8">mujarin.p@ketshopweb.com</div>
+        </div>
+        <div class="row">
+            <div class="col-4">การชำระเงิน</div>
+            <div class="col-8">โอนเงินผ่าน ธนาคาร</div>
+        </div>
+    </div>
+
+    <div>
+        <h5>ข้อมูลลูกค้า</h5>
+        <div class="row">
+            <div class="col-4">อีเมล</div>
+            <div class="col-8">mujarin.p@ketshopweb.com</div>
+        </div>
+        <div class="row">
+            <div class="col-4">เบอร์โทร</div>
+            <div class="col-8">0849293400</div>
+        </div>
+    </div>
+</div>

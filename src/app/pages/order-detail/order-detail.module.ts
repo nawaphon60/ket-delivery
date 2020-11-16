@@ -3,13 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { OrderDetailRoutingModule } from './order-detail-routing.module';
 import { OrderDetailComponent } from './order-detail.component';
-
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @NgModule({
   declarations: [OrderDetailComponent],
   imports: [
     CommonModule,
-    OrderDetailRoutingModule
+    OrderDetailRoutingModule,
+    NzSelectModule,
+    NzButtonModule,
+    NzIconModule,
+    NzInputModule
   ]
 })
 export class OrderDetailModule { }
