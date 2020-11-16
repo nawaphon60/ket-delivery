@@ -1,29 +1,38 @@
-<div class="row col-12">
-    <div class="col-4 col-md-1 text-center mt-3 p-0">
-        <img src="assets/images/download.png" alt="">
+<div style="
+            position: fixed;
+            top: 0;
+            z-index: 9;
+            background-color: #ffffff;
+        ">
+    <div class="row col-12">
+        <div class="col-4 col-md-1 ml-3 mt-3 p-0">
+            <img src="assets/images/download.png" alt="">
+        </div>
+
+        <div class="row col-8 col-md-11 mt-3">
+            <h4>เลขออเดอร์ #2011000001</h4>
+            <a nz-button nzType="link" nzDanger><i nz-icon nzType="printer" nzTheme="outline"
+                    class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
+        </div>
     </div>
-    <div class="col-8 col-md-11 mt-3">
-        <h4>เลขออเดอร์ #2011000001</h4>
-        <a nz-button nzType="link" nzDanger><i nz-icon nzType="printer" nzTheme="outline"
-                class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
+
+    <div class="row col-12 m-0 mb-3 pl-4 mt-1 justify-content-between" style="
+            border-bottom: 1px solid #000000;
+        ">
+        <div>
+            <span>สถานะ</span>
+            <nz-select [(ngModel)]="status" class="select-bordercustom ml-3" (ngModelChange)="onStatusChange()">
+                <nz-option [nzValue]="2" nzLabel="ได้รับเงิน"></nz-option>
+                <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option>
+            </nz-select>
+        </div>
+        <div><button nz-button nzType="primary" nzDanger style="border-radius: 5px;" (click)="onSave()">บันทึก</button>
+        </div>
     </div>
 </div>
 
-<div class="row col-12 m-0 mb-3 pl-4 mt-3 justify-content-between" style="
-        border-bottom: 1px solid #000000;
-    ">
-    <div>
-        <span>สถานะ</span>
-        <nz-select [(ngModel)]="status" class="select-bordercustom ml-3" (ngModelChange)="onStatusChange()">
-            <nz-option [nzValue]="2" nzLabel="ได้รับเงิน"></nz-option>
-            <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option>
-        </nz-select>
-    </div>
-    <div><button nz-button nzType="primary" nzDanger style="border-radius: 5px;" (click)="onSave()">บันทึก</button></div>
-</div>
 
-
-<div class="col-md-6 pl-3 pr-0">
+<div class="col-md-6 pl-3 pr-0" style="margin-top: 200px;">
     <div class="col-12 mb-3">
 
         <!-- การจัดส่ง -->
@@ -33,7 +42,7 @@
             <a nz-button nzType="link" nzDanger class="text-right"><i nz-icon nzType="printer" nzTheme="outline"
                     class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
         </div>
-    
+
         <div class="row ml-0 mr-0" style="
                 background-color: #d4edda;
                 border-radius: 5px;
@@ -44,12 +53,13 @@
                 <p class="mb-1">ผู้บริการขนส่ง</p>
                 <div _ngcontent-alq-c2="" class="ng-star-inserted"> ไปรษณีย์ EMS ( 10.00 ) </div>
             </div>
-    
+
             <div class="col-12 col-xl-6 mb-3">
                 <p class="mb-1">Tracking Code</p>
-                <input nz-input placeholder="กรุณาพิมพ์เลขพัสดุ" [(ngModel)]="trackcode" nzSize="large" style="border-radius: 5px;"/>
+                <input nz-input placeholder="กรุณาพิมพ์เลขพัสดุ" [(ngModel)]="trackcode" nzSize="large"
+                    style="border-radius: 5px;" />
             </div>
-    
+
             <div class="col-12 col-xl-3">
                 <p>Shipping Code</p>
             </div>
@@ -60,7 +70,7 @@
 
     <div class="col-12">
         <h5>รายการสั่งซื้อ</h5>
-    
+
         <div class="card  mb-3">
             <div class="row no-gutters">
 
@@ -134,7 +144,8 @@
 
                 <div class="col-12 p-3">
                     <p><i class="fas fa-lock"></i>หมายเหตุภายใน</p>
-                    <textarea _ngcontent-gkk-c2="" class="form-control ng-untouched ng-pristine ng-valid" rows="2 "></textarea>
+                    <textarea _ngcontent-gkk-c2="" class="form-control ng-untouched ng-pristine ng-valid"
+                        rows="2 "></textarea>
                 </div>
 
             </div>
@@ -145,6 +156,7 @@
 <div class="detail col-12 col-md-6 pl-5 pr-5 pt-3" style="
         background-color: #eaeaea;
         border-radius: 5px;
+        position: relative;
     ">
     <div style="
             border-bottom: 1px solid #d2d2d2;
