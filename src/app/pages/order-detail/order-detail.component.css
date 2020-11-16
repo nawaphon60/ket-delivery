@@ -15,3 +15,30 @@ nz-select {
 .pirnter-icon {
     color: #e85440;
 }
+
+.badge {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .018em;
+    border-radius: 10px;
+    padding: 3px 7px;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.badge-dark {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.detail h5 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.detail p {
+    font-size: 14px;
+    font-weight: 400;
+}
