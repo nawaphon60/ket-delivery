@@ -6,17 +6,18 @@
     padding: 0px;
     border-bottom: 2px solid #d9d9d9;
     ">
-
     <div class="row col-12 mt-2 ml-2 p-0">
-        <i nz-icon nzType="left" nzTheme="outline" style="
+        <a href="#" class="p-1" style="width: 40px;"><i nz-icon nzType="left" nzTheme="outline" style="
             color: white;
-            font-size: 38px;
-            "></i>
+            font-size: 28px;
+            "></i></a>
         <h4 class="mt-1 ml-3" style="
                 color: #dfdfdf;
+                font-size: 18px;
                 font-weight: 400;
             ">
-            เลขออเดอร์ #2011000001</h4>
+            เลขออเดอร์ #{{orderDetail?.ordercode}}</h4>
+        <!-- <input type="text" (focus)="onAction('focus')" (keyup)="onAction('keyup')" > -->
     </div>
 
 
@@ -24,11 +25,14 @@
         <div>
             <span style="color: white;">สถานะ</span>
             <nz-select [(ngModel)]="status" class="select-bordercustom ml-3" (ngModelChange)="onStatusChange()">
-                <nz-option [nzValue]="2" nzLabel="ได้รับเงิน"></nz-option>
-                <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option>
+                <nz-option *ngFor="let obj of orderDetail?.available_status" [nzValue]="obj.status"
+                    [nzLabel]="obj.name"></nz-option>
+                <!-- <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option> -->
             </nz-select>
         </div>
-        <div><button nz-button nzType="primary" nzDanger style="border-radius: 5px;" (click)="onSave()">บันทึก</button>
+        <div>
+            <button *ngIf="status !== 4" nz-button nzType="primary" nzDanger style="border-radius: 5px;"
+                (click)="onSave()">บันทึก</button>
         </div>
     </div>
 </div>
@@ -42,8 +46,8 @@
 
         <div class="row col-12 pr-0 justify-content-between">
             <h5>การจัดส่ง</h5>
-            <a nz-button nzType="link" nzDanger class="text-right mr-0 pr-0"><i nz-icon nzType="printer" nzTheme="outline"
-                    class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
+            <a nz-button nzType="link" nzDanger class="text-right mr-0 pr-0"><i nz-icon nzType="printer"
+                    nzTheme="outline" class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
         </div>
 
         <div class="row ml-0 mr-0" style="
@@ -79,19 +83,20 @@
             box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
             ">
             <div class="row no-gutters">
+                <div class="row no-gutters" *ngFor="let obj of orderDetail?.details">
+                    <div class="col-4 pl-2 pt-3 col-md-4">
+                        <img src="assets/images/1602476969pic.jpg" alt="..." style="width: 86px;">
+                    </div>
 
-                <div class="col-4 pl-2 pt-3 col-md-2">
-                    <img src="assets/images/1602476969pic.jpg" alt="..." style="width: 86px;">
-                </div>
-
-                <div class="col-8 pr-3 col-md-10">
-                    <div class="card-body p-0 pt-2 mt-3">
-                        <h5 class="crd-titile" style="
-                                font-weight: 400;
-                                border-radius: 5px;
-                            ">
-                            Griptok ติดหลังโทรศัพท์ ลายหมุดเหมียว สี...</h5>
-                        <div class="txt-black-45 small">SKU : GT1002410</div>
+                    <div class="col-8 pr-3 col-md-8">
+                        <div class="card-body p-0 pt-2 mt-3">
+                            <h5 class="crd-titile" style="
+                                    font-weight: 400;
+                                    border-radius: 5px;
+                                ">
+                                {{obj.title_lang1}}</h5>
+                            <div class="txt-black-45 small">SKU : {{obj.sku}}</div>
+                        </div>
                     </div>
                 </div>
 
@@ -105,25 +110,25 @@
                         
                     </div> -->
 
-                    <div class="row mt-3 mb-1 ml-0 mr-0" style="border-bottom: 1px solid #dfdfdf;">
+                    <div class="row mt-3 mb-1 ml-0 mr-0" style="border-bottom: 1px solid #dfdfdf;" *ngFor="let obj of orderDetail?.details">
                         <div class="col-4 text-left pl-0 pr-0">จำนวน :</div>
-                        <div class="col-4 text-left pl-0 pr-0">2</div>
-                        <div class="col-4 text-right pl-0 pr-0">600.00 THB</div>
+                        <div class="col-4 text-left pl-0 pr-0">{{obj.qty}}</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{obj.totalprice}} THB</div>
                     </div>
 
-                    <div class="row ml-0 mr-0">
+                    <div class="row ml-0 mr-0" *ngFor="let obj of orderDetail?.details">
                         <div class="col-6 text-left pl-0 pr-0">ราคารวมสินค้า :</div>
-                        <div class="col-6 text-right pl-0 pr-0">600.00 THB</div>
+                        <div class="col-6 text-right pl-0 pr-0">{{obj.totalprice}} THB</div>
                     </div>
 
                     <div class="row ml-0 mr-0">
                         <div class="col-6 text-left pl-0 pr-0">Vat 7.00 :</div>
-                        <div class="col-6 text-right pl-0 pr-0">42.00 THB</div>
+                        <div class="col-6 text-right pl-0 pr-0">{{orderDetail?.vat}} THB</div>
                     </div>
 
                     <div class="row mb-1 ml-0 mr-0">
                         <div class="col-6 text-left pl-0 pr-0">ฟรีค่าขนส่ง :</div>
-                        <div class="col-6 text-right pl-0 pr-0">0.00 THB</div>
+                        <div class="col-6 text-right pl-0 pr-0">{{orderDetail?.freeshipping_delivered_by}} THB</div>
                     </div>
 
                     <!-- <div class="row">
@@ -140,19 +145,19 @@
                             border-bottom: 1px solid #dfdfdf;
                         ">
                         <div class="col-6 pl-0 pr-0 text-left"><strong>ยอดที่ต้องชำระรวม :</strong></div>
-                        <div class="col-6 pl-0 pr-0 text-right"><strong>642.00 THB</strong></div>
+                        <div class="col-6 pl-0 pr-0 text-right"><strong>{{orderDetail?.totals}} THB</strong></div>
                     </div>
                 </div>
 
                 <div class="col-12 pl-2">
                     <p class="mb-0">หมายเหตุจากลูกค้า</p>
-                    <p class="mb-0">-</p>
+                    <p class="mb-0">{{orderDetail?.customer_note}}</p>
                 </div>
 
                 <div class="col-12 p-2">
                     <p class="mb-0"><i class="fas fa-lock"></i>หมายเหตุภายใน</p>
                     <textarea _ngcontent-gkk-c2="" class="form-control ng-untouched ng-pristine ng-valid"
-                        rows="2 "></textarea>
+                        rows="2"></textarea>
                 </div>
 
             </div>
@@ -169,9 +174,10 @@
         [nzActive]="panel.active" [ngStyle]="panel.customStyle">
         <!-- <p>{{ panel.name }} content</p> -->
         <div class="detail col-12 pl-2 pr-2 pb-2 col-md-12 pt-2" style="
-            background-color: #eaeaea;
-            border-radius: 5px;
             position: relative;
+            background-color: #eaeaea;
+            font-weight: 400;
+            border-radius: 5px;
         ">
             <div style="
                 border-bottom: 1px solid #d2d2d2;
@@ -180,19 +186,19 @@
                 <h5>ข้อมูลคำสั่งซื้อ</h5>
                 <div class="row">
                     <div class="col-5 pr-0">วันที่สร้าง</div>
-                    <div class="col-7">2020-11-04 17:29:24</div>
+                    <div class="col-7">{{orderDetail?.created_at}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">ช่องทางขาย</div>
-                    <div class="col-7">website</div>
+                    <div class="col-7">{{orderDetail?.sale_channel}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">สร้างโดย</div>
-                    <div class="col-7">mujarin.p@ketshopweb.com</div>
+                    <div class="col-7">{{orderDetail?.created_by}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">การชำระเงิน</div>
-                    <div class="col-7">โอนเงินผ่าน ธนาคาร</div>
+                    <div class="col-7">{{orderDetail?.paymenttype.name}}</div>
                 </div>
             </div>
 
@@ -200,11 +206,11 @@
                 <h5>ข้อมูลลูกค้า</h5>
                 <div class="row">
                     <div class="col-5 pr-0">อีเมล</div>
-                    <div class="col-7">mujarin.p@ketshopweb.com</div>
+                    <div class="col-7">{{orderDetail?.customer.username}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">เบอร์โทร</div>
-                    <div class="col-7">0849293400</div>
+                    <div class="col-7">{{orderDetail?.customer.tel}}</div>
                 </div>
             </div>
 
@@ -212,15 +218,17 @@
                 <span class="badge badge-dark mb-2">ที่อยู่สำหรับจัดส่ง</span>
                 <div class="row">
                     <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
-                    <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
+                    <div class="col-7">{{orderDetail?.shipping_name}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">เบอร์โทร</div>
-                    <div class="col-7">0849293400</div>
+                    <div class="col-7">{{orderDetail?.shipping_tel}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">ที่อยู่</div>
-                    <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
+                    <div class="col-7">{{orderDetail?.shipping_address1}} {{orderDetail?.shipping_subdistic}}
+                        {{orderDetail?.shipping_district}} {{orderDetail?.shipping_province}}
+                        {{orderDetail?.shipping_zipcode}}</div>
                 </div>
             </div>
 
@@ -228,19 +236,21 @@
                 <span class="badge badge-dark mb-2">ที่อยู่สำหรับออกบิล</span>
                 <div class="row">
                     <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
-                    <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
+                    <div class="col-7">{{orderDetail?.bill_name}} {{orderDetail?.bill_lastname}}</div>
                 </div>
                 <div class="row">
-                    <div class="col-5 pr-0">นิติบุคคล</div>
-                    <div class="col-7">-</div>
+                    <div class="col-5 pr-0">เลขนิติบุคคล</div>
+                    <div class="col-7">#</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">เบอร์โทร</div>
-                    <div class="col-7">0849293400</div>
+                    <div class="col-7">{{orderDetail?.bill_tel}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">ที่อยู่</div>
-                    <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
+                    <div class="col-7">{{orderDetail?.bill_address1}} {{orderDetail?.bill_subdistrict}}
+                        {{orderDetail?.bill_district}} {{orderDetail?.bill_province}} {{orderDetail?.bill_zipcode}}
+                    </div>
                 </div>
             </div>
         </div>

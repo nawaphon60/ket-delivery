@@ -9,6 +9,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { SubnameModule } from 'src/app/pipe/subname/subname.module';
 
 @NgModule({
   declarations: [OrderDetailComponent],
@@ -20,7 +21,8 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
     NzIconModule,
     NzInputModule,
     FormsModule,
-    NzCollapseModule
+    NzCollapseModule,
+    SubnameModule
   ]
 })
 export class OrderDetailModule { }
