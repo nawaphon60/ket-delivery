@@ -21,6 +21,7 @@ export class OrderDetailComponent implements OnInit {
         background: '#f7f7f7',
         'border-radius': '4px',
         'margin-bottom': '24px',
+        'font-weight':'500',
         border: '0px'
       }
     }
