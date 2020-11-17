@@ -12,6 +12,20 @@ export class OrderDetailComponent implements OnInit {
 
   constructor() { }
 
+  panels = [
+    {
+      active: true,
+      disabled: false,
+      name: 'Detail',
+      customStyle: {
+        background: '#f7f7f7',
+        'border-radius': '4px',
+        'margin-bottom': '24px',
+        border: '0px'
+      }
+    }
+  ];
+
   ngOnInit() {
   }
 

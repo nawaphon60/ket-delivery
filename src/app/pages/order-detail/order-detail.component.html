@@ -1,26 +1,24 @@
-<div style="
-            position: fixed;
-            top: 0;
-            z-index: 9;
-            background-color: #ffffff;
-        ">
-    <div class="row col-12">
-        <div class="col-4 col-md-1 ml-3 mt-3 p-0">
-            <img src="assets/images/download.png" alt="">
-        </div>
+<div class="col-12" style="
+    position: fixed;
+    top: 0;
+    z-index: 9;
+    background-color: #343a40;
+    padding: 0px;
+    border-bottom: 2px solid #d9d9d9;
+    ">
 
-        <div class="row col-8 col-md-11 mt-3">
-            <h4>เลขออเดอร์ #2011000001</h4>
-            <a nz-button nzType="link" nzDanger><i nz-icon nzType="printer" nzTheme="outline"
-                    class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
-        </div>
+    <div class="row col-12 mt-2 ml-2 p-0">
+        <h4 style="
+                color: #dfdfdf;
+                font-weight: 400;
+            ">
+            เลขออเดอร์ #2011000001</h4>
     </div>
 
-    <div class="row col-12 m-0 mb-3 pl-4 mt-1 justify-content-between" style="
-            border-bottom: 1px solid #000000;
-        ">
+
+    <div class="row col-12 m-0 pl-2 pr-0 mt-1 justify-content-between">
         <div>
-            <span>สถานะ</span>
+            <span style="color: white;">สถานะ</span>
             <nz-select [(ngModel)]="status" class="select-bordercustom ml-3" (ngModelChange)="onStatusChange()">
                 <nz-option [nzValue]="2" nzLabel="ได้รับเงิน"></nz-option>
                 <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option>
@@ -31,23 +29,25 @@
     </div>
 </div>
 
+<!-- ------------------------------------------------------------------------------------------------>
 
-<div class="col-md-6 pl-3 pr-0" style="margin-top: 200px;">
+<div class="col-md-12 pl-0 pr-0" style="margin-top: 105px;">
     <div class="col-12 mb-3">
 
         <!-- การจัดส่ง -->
 
-        <div class="row col-12 mr-0 pr-0 justify-content-between">
+        <div class="row col-12 pr-0 justify-content-between">
             <h5>การจัดส่ง</h5>
-            <a nz-button nzType="link" nzDanger class="text-right"><i nz-icon nzType="printer" nzTheme="outline"
+            <a nz-button nzType="link" nzDanger class="text-right mr-0 pr-0"><i nz-icon nzType="printer" nzTheme="outline"
                     class="pirnter-icon"></i>พิมพ์ใบสั่งซื้อ</a>
         </div>
 
         <div class="row ml-0 mr-0" style="
-                background-color: #d4edda;
+                background-color: #ffffff;
+                box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
                 border-radius: 5px;
                 margin: 0px 5px;
-                padding: 10px 5px 10px 5px;
+                padding: 10px 0px 5px 0px;
             ">
             <div class="col-12 col-xl-3 mb-3">
                 <p class="mb-1">ผู้บริการขนส่ง</p>
@@ -71,15 +71,17 @@
     <div class="col-12">
         <h5>รายการสั่งซื้อ</h5>
 
-        <div class="card  mb-3">
+        <div class="card mb-3" style="
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            ">
             <div class="row no-gutters">
 
-                <div class="col-4 text-center pt-3">
+                <div class="col-4 pl-2 pt-3 col-md-2">
                     <img src="assets/images/1602476969pic.jpg" alt="..." style="width: 86px;">
                 </div>
 
-                <div class="col-8 pr-3">
-                    <div class="card-body p-2 mt-3">
+                <div class="col-8 pr-3 col-md-10">
+                    <div class="card-body p-0 pt-2 mt-3">
                         <h5 class="crd-titile" style="
                                 font-weight: 400;
                                 border-radius: 5px;
@@ -89,61 +91,62 @@
                     </div>
                 </div>
 
-                <div class="col-12 p-3">
-                    <div class="row">
+                <div class="col-12 pl-2 pr-2">
+                    <!-- <div class="row">
                         <div class="col-6 text-right">ราคา/หน่วย</div>
                         <div class="col-6 text-right">300.00</div>
                     </div>
 
                     <div class="row">
-                        <div class="col-6 text-right">จำนวน</div>
-                        <div class="col-6 text-right">2</div>
+                        
+                    </div> -->
+
+                    <div class="row mt-3 mb-1 ml-0 mr-0" style="border-bottom: 1px solid #dfdfdf;">
+                        <div class="col-4 text-left pl-0 pr-0">จำนวน :</div>
+                        <div class="col-4 text-right pl-0 pr-0">2</div>
+                        <div class="col-4 text-right pl-0 pr-0">600.00 THB</div>
                     </div>
 
-                    <div class="row" style="border-bottom: 1px solid #000000;">
-                        <div class="col-6 text-right">ราคา(บาท)</div>
-                        <div class="col-6 text-right">600.00</div>
+                    <div class="row ml-0 mr-0">
+                        <div class="col-6 text-left pl-0 pr-0">ราคารวมสินค้า :</div>
+                        <div class="col-6 text-right pl-0 pr-0">600.00 THB</div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-6 text-right">ราคารวมสินค้า</div>
-                        <div class="col-6 text-right">600.00</div>
+                    <div class="row ml-0 mr-0">
+                        <div class="col-6 text-left pl-0 pr-0">Vat 7.00 :</div>
+                        <div class="col-6 text-right pl-0 pr-0">42.00 THB</div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-6 text-right">Vat 7.00</div>
-                        <div class="col-6 text-right">42.00</div>
+                    <div class="row mb-1 ml-0 mr-0">
+                        <div class="col-6 text-left pl-0 pr-0">ฟรีค่าขนส่ง :</div>
+                        <div class="col-6 text-right pl-0 pr-0">0.00 THB</div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-6 text-right">ฟรีค่าขนส่ง</div>
-                        <div class="col-6 text-right">0.00</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 text-right">น้ำหนักรวม</div>
+                    <!-- <div class="row">
+                        <div class="col-6 text-left">น้ำหนักรวม :</div>
                         <div class="col-6 text-right">200 กรัม</div>
                     </div>
 
-                    <div class="col-12 text-right pr-0">
+                    <div class="col-12 text-right pr-0 mb-1">
                         กล่องเบอร์ 0 (11x17x6 cm)
-                    </div>
+                    </div> -->
 
-                    <div class="row" style="
-                            border-top: 1px solid #000000;
+                    <div class="row ml-0 mr-0 pt-1 pb-1" style="
+                            border-top: 1px solid #dfdfdf;
+                            border-bottom: 1px solid #dfdfdf;
                         ">
-                        <div class="col-6 text-right">ยอดที่ต้องชำระรวม</div>
-                        <div class="col-6 text-right">642.00</div>
+                        <div class="col-6 pl-0 pr-0 text-left"><strong>ยอดที่ต้องชำระรวม :</strong></div>
+                        <div class="col-6 pl-0 pr-0 text-right"><strong>642.00</strong></div>
                     </div>
                 </div>
 
-                <div class="col-12 p-3">
-                    <p>หมายเหตุจากลูกค้า</p>
-                    <p>-</p>
+                <div class="col-12 pl-2">
+                    <p class="mb-0">หมายเหตุจากลูกค้า</p>
+                    <p class="mb-0">-</p>
                 </div>
 
-                <div class="col-12 p-3">
-                    <p><i class="fas fa-lock"></i>หมายเหตุภายใน</p>
+                <div class="col-12 p-2">
+                    <p class="mb-0"><i class="fas fa-lock"></i>หมายเหตุภายใน</p>
                     <textarea _ngcontent-gkk-c2="" class="form-control ng-untouched ng-pristine ng-valid"
                         rows="2 "></textarea>
                 </div>
@@ -153,79 +156,93 @@
     </div>
 </div>
 
-<div class="detail col-12 col-md-6 pl-5 pr-5 pt-3" style="
-        background-color: #eaeaea;
-        border-radius: 5px;
-        position: relative;
-    ">
-    <div style="
-            border-bottom: 1px solid #d2d2d2;
-            padding-bottom: 15px;
+
+<!-- Detail -->
+
+
+<nz-collapse [nzBordered]="false">
+    <nz-collapse-panel #p *ngFor="let panel of panels; let isFirst = first" [nzHeader]="panel.name"
+        [nzActive]="panel.active" [ngStyle]="panel.customStyle">
+        <!-- <p>{{ panel.name }} content</p> -->
+        <div class="detail col-12 pl-2 pr-2 col-md-12 pt-2" style="
+            background-color: #eaeaea;
+            border-radius: 5px;
+            position: relative;
         ">
-        <h5>ข้อมูลคำสั่งซื้อ</h5>
-        <div class="row">
-            <div class="col-5 pr-0">วันที่สร้าง</div>
-            <div class="col-7">2020-11-04 17:29:24</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">ช่องทางขาย</div>
-            <div class="col-7">website</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">สร้างโดย</div>
-            <div class="col-7">mujarin.p@ketshopweb.com</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">การชำระเงิน</div>
-            <div class="col-7">โอนเงินผ่าน ธนาคาร</div>
-        </div>
-    </div>
+            <div style="
+                border-bottom: 1px solid #d2d2d2;
+                padding-bottom: 15px;
+            ">
+                <h5>ข้อมูลคำสั่งซื้อ</h5>
+                <div class="row">
+                    <div class="col-5 pr-0">วันที่สร้าง</div>
+                    <div class="col-7">2020-11-04 17:29:24</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">ช่องทางขาย</div>
+                    <div class="col-7">website</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">สร้างโดย</div>
+                    <div class="col-7">mujarin.p@ketshopweb.com</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">การชำระเงิน</div>
+                    <div class="col-7">โอนเงินผ่าน ธนาคาร</div>
+                </div>
+            </div>
 
-    <div class="pt-3">
-        <h5>ข้อมูลลูกค้า</h5>
-        <div class="row">
-            <div class="col-5 pr-0">อีเมล</div>
-            <div class="col-7">mujarin.p@ketshopweb.com</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">เบอร์โทร</div>
-            <div class="col-7">0849293400</div>
-        </div>
-    </div>
+            <div class="pt-3">
+                <h5>ข้อมูลลูกค้า</h5>
+                <div class="row">
+                    <div class="col-5 pr-0">อีเมล</div>
+                    <div class="col-7">mujarin.p@ketshopweb.com</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">เบอร์โทร</div>
+                    <div class="col-7">0849293400</div>
+                </div>
+            </div>
 
-    <div class="mt-3">
-        <span class="badge badge-dark mb-2">ที่อยู่สำหรับจัดส่ง</span>
-        <div class="row">
-            <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
-            <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">เบอร์โทร</div>
-            <div class="col-7">0849293400</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">ที่อยู่</div>
-            <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
-        </div>
-    </div>
+            <div class="mt-3">
+                <span class="badge badge-dark mb-2">ที่อยู่สำหรับจัดส่ง</span>
+                <div class="row">
+                    <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
+                    <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">เบอร์โทร</div>
+                    <div class="col-7">0849293400</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">ที่อยู่</div>
+                    <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
+                </div>
+            </div>
 
-    <div class="mt-3">
-        <span class="badge badge-dark mb-2">ที่อยู่สำหรับออกบิล</span>
-        <div class="row">
-            <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
-            <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
+            <div class="mt-3">
+                <span class="badge badge-dark mb-2">ที่อยู่สำหรับออกบิล</span>
+                <div class="row">
+                    <div class="col-5 pr-0">ชื่อ - นามสกุล</div>
+                    <div class="col-7">มุจรินทร์ ปฐมไพบูลย์</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">นิติบุคคล</div>
+                    <div class="col-7">-</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">เบอร์โทร</div>
+                    <div class="col-7">0849293400</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 pr-0">ที่อยู่</div>
+                    <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-5 pr-0">นิติบุคคล</div>
-            <div class="col-7">-</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">เบอร์โทร</div>
-            <div class="col-7">0849293400</div>
-        </div>
-        <div class="row">
-            <div class="col-5 pr-0">ที่อยู่</div>
-            <div class="col-7">12/3 ซอยรามอินทรา13 อนุสาวรีย์ บางเขน กรุงเทพมหานคร 10200</div>
-        </div>
-    </div>
-</div>
+        <ng-template #expandedIcon let-active>
+            {{ active }}
+            <i nz-icon nzType="caret-right" class="ant-collapse-arrow" [nzRotate]="p.nzActive ? 90 : -90"></i>
+        </ng-template>
+    </nz-collapse-panel>
+</nz-collapse>
