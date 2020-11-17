@@ -27,7 +27,6 @@
             <nz-select [(ngModel)]="status" class="select-bordercustom ml-3" (ngModelChange)="onStatusChange()">
                 <nz-option *ngFor="let obj of orderDetail?.available_status" [nzValue]="obj.status"
                     [nzLabel]="obj.name"></nz-option>
-                <!-- <nz-option [nzValue]="-1" nzLabel="ยกเลิก"></nz-option> -->
             </nz-select>
         </div>
         <div>
@@ -85,7 +84,7 @@
             <div class="row no-gutters">
                 <div class="row no-gutters" *ngFor="let obj of orderDetail?.details">
                     <div class="col-4 pl-2 pt-3 col-md-4">
-                        <img src="assets/images/1602476969pic.jpg" alt="..." style="width: 86px;">
+                        <img src="https://sushilittledog.ketshopweb.com{{obj.feature_img}}" alt="..." style="width: 86px;">
                     </div>
 
                     <div class="col-8 pr-3 col-md-8">
@@ -101,16 +100,8 @@
                 </div>
 
                 <div class="col-12 pl-2 pr-2">
-                    <!-- <div class="row">
-                        <div class="col-6 text-right">ราคา/หน่วย</div>
-                        <div class="col-6 text-right">300.00</div>
-                    </div>
-
-                    <div class="row">
-                        
-                    </div> -->
-
-                    <div class="row mt-3 mb-1 ml-0 mr-0" style="border-bottom: 1px solid #dfdfdf;" *ngFor="let obj of orderDetail?.details">
+                    <div class="row mt-3 mb-1 ml-0 mr-0" style="border-bottom: 1px solid #dfdfdf;"
+                        *ngFor="let obj of orderDetail?.details">
                         <div class="col-4 text-left pl-0 pr-0">จำนวน :</div>
                         <div class="col-4 text-left pl-0 pr-0">{{obj.qty}}</div>
                         <div class="col-4 text-right pl-0 pr-0">{{obj.totalprice}} THB</div>
@@ -167,8 +158,6 @@
 
 
 <!-- Detail -->
-
-
 <nz-collapse [nzBordered]="false">
     <nz-collapse-panel #p *ngFor="let panel of panels; let isFirst = first" [nzHeader]="panel.name"
         [nzActive]="panel.active" [ngStyle]="panel.customStyle">
@@ -227,8 +216,9 @@
                 <div class="row">
                     <div class="col-5 pr-0">ที่อยู่</div>
                     <div class="col-7">{{orderDetail?.shipping_address1}} {{orderDetail?.shipping_subdistic}}
-                        {{orderDetail?.shipping_district}} {{orderDetail?.shipping_province}}
-                        {{orderDetail?.shipping_zipcode}}</div>
+                        {{orderDetail?.shipping_district}}
+                        {{orderDetail?.shipping_province}}{{orderDetail?.shipping_zipcode}}
+                    </div>
                 </div>
             </div>
 
@@ -240,7 +230,7 @@
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">เลขนิติบุคคล</div>
-                    <div class="col-7">#</div>
+                    <div class="col-7">{{orderDetail?.tax_no}}</div>
                 </div>
                 <div class="row">
                     <div class="col-5 pr-0">เบอร์โทร</div>
