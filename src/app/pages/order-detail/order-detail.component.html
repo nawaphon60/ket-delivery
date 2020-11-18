@@ -56,19 +56,38 @@
                 margin: 0px 5px;
                 padding: 10px 0px 5px 0px;
             ">
-            <div class="col-12 col-xl-3 mb-3 pl-2 pr-2">
-                <p class="mb-1">ผู้บริการขนส่ง</p>
-                <div _ngcontent-alq-c2="" class="ng-star-inserted"> ไปรษณีย์ EMS ( 10.00 ) </div>
+            <!-- ผู้ให้บริการ -->
+            <div class="col-12 col-xl-3 mb-3 pl-2 pr-2" *ngIf="orderDetail?.delivery?.is_auto == true || false">
+                <p class="mb-1" style="color: #000000a6;">ผู้บริการขนส่ง</p>
+                <div _ngcontent-alq-c2="" class="ng-star-inserted">{{orderDetail?.delivery?.name}} (
+                    <span>{{orderDetail.delivery?.price | currency: ' '}}</span> ) </div>
             </div>
 
-            <div class="col-12 col-xl-6 mb-3 pl-2 pr-2">
+            <!-- Freeshipping -->
+            <div class="col-12 col-xl-3 mb-3 pl-2 pr-2" *ngIf="orderDetail?.freeshipping == 1 && status == 2">
+                <p class="mb-1" style="color: #000000a6;">ผู้บริการขนส่ง</p>
+                <nz-select class="select-bordercustom ml-3">
+                    <nz-option *ngFor="let obj of orderDetail?.freeshipping_delivery.freeshipping_auto" [nzValue]="obj.status"
+                        [nzLabel]="obj.name"><span></span></nz-option>
+                </nz-select>
+            </div>
+
+            <!-- Tracking Code -->
+            <div class="col-12 col-xl-6 mb-3 pl-2 pr-2" *ngIf="orderDetail?.delivery?.is_auto == true">
+                <p class="mb-1" style="color: #000000a6;">Tracking Code</p>
+                <p>{{orderDetail?.trackcode}}</p>
+            </div>
+
+            <!-- <div class="col-12 col-xl-6 mb-3 pl-2 pr-2">
                 <p class="mb-1">Tracking Code</p>
                 <input nz-input placeholder="กรุณาพิมพ์เลขพัสดุ" [(ngModel)]="trackcode" nzSize="large"
                     style="border-radius: 5px;" />
-            </div>
+            </div> -->
 
-            <div class="col-12 col-xl-3 pl-2 pr-2">
-                <p>Shipping Code</p>
+            <!-- Shipping Code -->
+            <div class="col-12 col-xl-6 mb-3 pl-2 pr-2" *ngIf="orderDetail?.delivery?.is_auto == true">
+                <p class="mb-1" style="color: #000000a6;">Shipping Code</p>
+                <p>{{orderDetail?.shippingcode}}</p>
             </div>
         </div>
     </div>
@@ -84,7 +103,8 @@
             <div class="row no-gutters">
                 <div class="row no-gutters" *ngFor="let obj of orderDetail?.details">
                     <div class="col-4 pl-2 pt-3 col-md-4">
-                        <img src="https://sushilittledog.ketshopweb.com{{obj.feature_img}}" alt="..." style="width: 86px;">
+                        <img src="https://sushilittledog.ketshopweb.com{{obj.feature_img}}" alt="..."
+                            style="width: 86px;">
                     </div>
 
                     <div class="col-8 pr-3 col-md-8">
@@ -104,33 +124,78 @@
                         *ngFor="let obj of orderDetail?.details">
                         <div class="col-4 text-left pl-0 pr-0">จำนวน :</div>
                         <div class="col-4 text-left pl-0 pr-0">{{obj.qty}}</div>
-                        <div class="col-4 text-right pl-0 pr-0">{{obj.totalprice}} THB</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{obj.totalprice  | currency:' '}} THB</div>
+                    </div>
+                    <!-- TotalPrice -->
+                    <div class="row ml-0 mr-0" *ngFor="let obj of orderDetail?.details">
+                        <div class="col-8 text-left pl-0 pr-0">ราคารวมสินค้า :</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{obj.totalprice | currency:' '}} THB</div>
                     </div>
 
-                    <div class="row ml-0 mr-0" *ngFor="let obj of orderDetail?.details">
-                        <div class="col-6 text-left pl-0 pr-0">ราคารวมสินค้า :</div>
-                        <div class="col-6 text-right pl-0 pr-0">{{obj.totalprice}} THB</div>
+                    <!-- UsePoint -->
+                    <div class="row ml-0 mr-0" *ngIf="orderDetail?.discount_point > 0">
+                        <div class="col-8 text-left pl-0 pr-0">ส่วนลดจากแต้มสะสม {{orderDetail?.use_point}} แต้ม :</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{orderDetail?.discount_point}} THB</div>
+                    </div>
+
+                    <div class="row ml-0 mr-0" *ngIf="orderDetail?.discountaddon > 0">
+                        <div class="col-8 text-left pl-0 pr-0">ส่วนลดพิเศษ</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{orderDetail?.discountaddon | currency:' '}} THB</div>
                     </div>
 
                     <!-- Promotion -->
+
+                    <!-- Condition -->
                     <div class="row ml-0 mr-0" *ngIf="orderDetail?.promotion_data?.data?.condition?.promotion_discount">
-                        <div class="col-6 text-left pl-0 pr-0">ส่วนลดโปรโมชั่น
-                            {{orderDetail?.promotion_data?.data?.condition.title}} 
-                            <span *ngIf="orderDetail?.promotion_data?.data?.condition.discount_type == 'percent'" >( {{orderDetail?.promotion_data?.data?.condition.discount}}% )</span>
+                        <div class="col-8 text-left pl-0 pr-0">
+                            ส่วนลดโปรโมชั่น {{orderDetail?.promotion_data?.data?.condition.title}}
+                            <span *ngIf="orderDetail?.promotion_data?.data?.condition.discount_type == 'percent'">(
+                                {{orderDetail?.promotion_data?.data?.condition.discount}}% ) :</span>
                         </div>
-                        <div class="col-6 text-right pl-0 pr-0">-{{orderDetail?.promotion_data?.data?.condition?.promotion_discount}} THB</div>
+                        <div class="col-4 text-right pl-0 pr-0">
+                            -{{orderDetail?.promotion_data?.data?.condition?.promotion_discount}} THB</div>
                     </div>
+
+                    <!-- Coupon -->
+                    <div class="row ml-0 mr-0" *ngIf="orderDetail?.promotion_data?.data?.coupon">
+                        <div class="col-8 text-left pl-0 pr-0">
+                            ส่วนลดคูปอง {{orderDetail?.promotion_data?.data?.coupon.code}}
+                            <span *ngIf="orderDetail?.promotion_data?.data?.coupon.value_type == 'percent'">(
+                                {{orderDetail?.promotion_data?.data?.coupon.value}}% ) :</span>
+                        </div>
+                        <div class="col-4 text-right pl-0 pr-0">
+                            -{{orderDetail?.promotion_data?.data?.coupon?.promotion_discount | currency:' '}} THB</div>
+                    </div>
+
 
                     <!-- Vat -->
                     <div class="row ml-0 mr-0" *ngIf="orderDetail?.vat > 0">
-                        <div class="col-6 text-left pl-0 pr-0">Vat {{orderDetail?.vatrate}}% :</div>
-                        <div class="col-6 text-right pl-0 pr-0">{{orderDetail?.vat}} THB</div>
+                        <div class="col-8 text-left pl-0 pr-0">Vat {{orderDetail?.vatrate | currency:' '}}% :</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{orderDetail?.vat | currency:' '}} THB</div>
+                    </div>
+
+                    <!-- Normal -->
+                    <div class="row mb-1 ml-0 mr-0" *ngIf="orderDetail?.delivery?.name">
+                        <div class="col-8 text-left pl-0 pr-0">{{orderDetail?.delivery?.name}} :</div>
+                        <div class="col-4 text-right pl-0 pr-0">{{orderDetail?.delivery?.price | currency:' '}} THB
+                        </div>
+                    </div>
+
+                    <!-- COD -->
+                    <div class="row mb-1 ml-0 mr-0" *ngIf="orderDetail?.cod == 1">
+                        <div class="col-8 text-left pl-0 pr-0">
+                            ค่าธรรมเนียม {{orderDetail?.cod_rate}}
+                            <span *ngIf="orderDetail?.cod_rate_type == 'percent'">%</span>
+                            <span *ngIf="orderDetail?.cod_rate_type == 'normal'">THB</span>
+                        </div>
+                        <div class="col-4 text-right pl-0 pr-0">
+                            {{orderDetail?.cod_value}} THB</div>
                     </div>
 
                     <!-- FreeShipping -->
-                    <div class="row mb-1 ml-0 mr-0">
-                        <div class="col-6 text-left pl-0 pr-0">ฟรีค่าขนส่ง :</div>
-                        <div class="col-6 text-right pl-0 pr-0">{{orderDetail?.freeshipping_delivered_by}} THB</div>
+                    <div class="row mb-1 ml-0 mr-0" *ngIf="orderDetail?.freeshipping == 1">
+                        <div class="col-8 text-left pl-0 pr-0">ฟรีค่าขนส่ง :</div>
+                        <div class="col-4 text-right pl-0 pr-0">0.00 THB</div>
                     </div>
 
                     <!-- <div class="row">
@@ -146,8 +211,9 @@
                             border-top: 1px solid #dfdfdf;
                             border-bottom: 1px solid #dfdfdf;
                         ">
-                        <div class="col-6 pl-0 pr-0 text-left"><strong>ยอดที่ต้องชำระรวม :</strong></div>
-                        <div class="col-6 pl-0 pr-0 text-right"><strong>{{orderDetail?.totals}} THB</strong></div>
+                        <div class="col-8 pl-0 pr-0 text-left"><strong>ยอดที่ต้องชำระรวม :</strong></div>
+                        <div class="col-4 pl-0 pr-0 text-right"><strong>{{orderDetail?.totals  | currency:' '}}
+                                THB</strong></div>
                     </div>
                 </div>
 
