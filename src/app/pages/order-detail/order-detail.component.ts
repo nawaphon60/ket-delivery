@@ -35,7 +35,7 @@ export class OrderDetailComponent implements OnInit {
 
   ngOnInit() {
     let ordercode = this.activatedRoute.snapshot.paramMap.get('ordercode')
-    console.log('ordercode', ordercode)
+      console.log('ordercode', ordercode)
 
     this.orderService.getOrderByCode(ordercode).then((res:any)=>{
       console.log('order', res)
