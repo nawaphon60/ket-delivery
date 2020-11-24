@@ -17,6 +17,7 @@ export class ModalEdittodoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     console.log(this.dataEdit)
     this.edittaskname = this.dataEdit.taskname
   }

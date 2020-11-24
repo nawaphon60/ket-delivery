@@ -74,7 +74,9 @@ export class TodoComponent implements OnInit {
       completed: completed?false:true
     }
 
+    this.isLoading = true
     this.todoService.update(model, id).then((res:any) =>{
+      this.isLoading = false
       this.getAllTodo()
     })
   }
@@ -89,6 +91,8 @@ export class TodoComponent implements OnInit {
       nzComponentParams: {dataEdit:obj}
     }).afterClose.subscribe((res:any)=>{
 
+      m.unsubscribe()
+      
       if(res){
 
         let model = {
