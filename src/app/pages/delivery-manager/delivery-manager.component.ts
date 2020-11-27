@@ -12,7 +12,7 @@ export class DeliveryManagerComponent implements OnInit {
   constructor(
     private nzDrawerService: NzDrawerService
   ){
-    // this.addDeelivery('normal')
+    // this.addDelivery('normal')
   }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class DeliveryManagerComponent implements OnInit {
   sw_open = false
 
 
-  addDeelivery(type:string){
+  addDelivery(type:string){
     const drawerRef = this.nzDrawerService.create({
       nzTitle: 'เพิ่มขนส่ง',
       nzFooter: null,

@@ -1,8 +1,8 @@
 <div class="profile col-12" style="
     background-color: #6495ed;
     ">
-  <h1 style="color: white;">To Do</h1>
-  <p>Nawaphon</p>
+    <h1 style="color: white;">To Do</h1>
+    <p>Nawaphon</p>
 </div>
 
 
@@ -11,68 +11,74 @@
 </div> -->
 
 <div class="loading" *ngIf="isLoading">
-  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
-  <nz-spin nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
+    <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+    <nz-spin nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
 </div>
 
 <div class="container">
-  <nz-input-group nzCompact class="row">
-    <input nz-input class="form-control col-10 col-lg-11" placeholder="Enter todo" nzSize="default size"
-      style="color: #000;" [(ngModel)]="taskname" />
-    <div class="input-group-append col-2 col-lg-1 pl-0" style="cursor: pointer;">
-      <span class="input-group-text justify-content-center" style="height: 35px;" (click)="create()"><i
-          class="fa fa-plus-circle "></i></span>
+
+    <!-- Create -->
+    <nz-input-group nzCompact class="row">
+        <input nz-input class="form-control col-10 col-lg-11" placeholder="Enter todo" nzSize="default size"
+            style="color: #000;" [(ngModel)]="taskname" />
+            
+        <div class="input-group-append col-2 col-lg-1 pl-0" style="cursor: pointer;">
+            <span class="input-group-text justify-content-center" style="height: 35px;" (click)="create()">
+                <i class="fa fa-plus-circle "></i>
+            </span>
+        </div>
+    </nz-input-group>
+
+    <div *ngFor="let obj of todo">
+
+        <div class="card mb-3 col-12" style="
+              box-shadow: 2px 2px 10px rgba(0,0,0,0.2);">
+            <div class="card-body row col-12" style="padding: 5px 10px;">
+
+                <!-- Check -->
+                <div class="col-2 col-lg-1 text-center mt-2">
+                    <button *ngIf="obj.completed" (click)="completedwork(obj.id,obj.completed)" nz-button class="m-0"
+                        nzType="primary" nzShape="circle">
+                        <i nz-icon nzType="check" nzTheme="outline"></i>
+                    </button>
+
+                    <button *ngIf="!obj.completed" (click)="completedwork(obj.id,obj.completed)" nz-button class="m-0"
+                        nzShape="circle">
+                        <i nz-icon nzType="check" nzTheme="outline"></i>
+                    </button>
+                </div>
+
+                <!-- Taskname -->
+                <div class="col-6 col-lg-9 mt-2">{{obj.taskname}}<br>
+                    <span style="color: #b8b8b8;">{{obj.created_at}}</span>
+                </div>
+
+                <div class="row justify-content-center col-4 pl-0 pr-0 col-lg-2">
+                    <!-- Edit Button -->
+                    <div class="mr-1" (click)="showModal(obj)" style="
+                        background-color: rgb(235, 235, 235);
+                        color: #6495ed;
+                        height: 30px;
+                        width: 30px;
+                        margin: 10px;
+                        padding: 5px 8px;
+                        border-radius: 5px;">
+                        <i nz-icon nzType="edit" nzTheme="outline"></i>
+                    </div>
+
+                    <!-- Delete Button -->
+                    <div style="
+                        background-color: rgb(235, 235, 235);
+                        color: red;
+                        height: 30px;
+                        width: 30px;
+                        margin: 10px;
+                        padding: 5px 8px;
+                        border-radius: 5px;" (click)="deleteData(obj.id)">
+                        <i nz-icon nzType="delete" nzTheme="outline"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </nz-input-group>
-
-  <div *ngFor="let obj of todo">
-
-    <div class="card mb-3 " style="
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);">
-      <div class="card-body row" style="padding: 5px 10px;">
-
-        <!-- Check -->
-        <div class="ml-3 mt-2">
-          <button *ngIf="obj.completed" (click)="completedwork(obj.id,obj.completed)" nz-button class="m-0"
-            nzType="primary" nzShape="circle">
-            <i nz-icon nzType="check" nzTheme="outline"></i>
-          </button>
-
-          <button *ngIf="!obj.completed" (click)="completedwork(obj.id,obj.completed)" nz-button class="m-0"
-            nzShape="circle">
-            <i nz-icon nzType="check" nzTheme="outline"></i>
-          </button>
-        </div>
-
-        <!-- Taskname -->
-        <div class="col-7 mt-2">{{obj.taskname}}<br>
-          <span style="color: #b8b8b8;">{{obj.created_at}}</span>
-        </div>
-
-        <!-- Edit Button -->
-        <div class="mr-1" (click)="showModal(obj)" style="
-                background-color: rgb(235, 235, 235);
-                color: #6495ed;
-                height: 30px;
-                width: 30px;
-                margin: 10px;
-                padding: 5px 8px;
-                border-radius: 5px;">
-          <i nz-icon nzType="edit" nzTheme="outline"></i>
-        </div>
-
-        <!-- Delete Button -->
-        <div style="
-                background-color: rgb(235, 235, 235);
-                color: red;
-                height: 30px;
-                width: 30px;
-                margin: 10px;
-                padding: 5px 8px;
-                border-radius: 5px;" (click)="deleteData(obj.id)">
-          <i nz-icon nzType="delete" nzTheme="outline"></i>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
